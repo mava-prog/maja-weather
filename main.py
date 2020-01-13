@@ -1,10 +1,14 @@
 from flask import Flask,render_template
 import requests
+import os
 from random import  randint
 
 app = Flask(__name__)
 
-API_KEY = open("API_KEY.txt").read().strip()
+try:
+    APY_KEY = os.environ["API_KEY"]
+except:
+    API_KEY = open("API_KEY.txt").read().strip()
 
 
 
